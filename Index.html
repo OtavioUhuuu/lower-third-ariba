@@ -16,10 +16,9 @@
       left: 50px;
       display: inline-flex;
       flex-direction: column;
-      align-items: flex-start; /* garante que o tamanho segue o texto */
+      align-items: flex-start;
     }
 
-    /* Caixa com gradiente animado */
     .name-box {
       display: inline-block;
       padding: 8px 16px;
@@ -28,7 +27,21 @@
       font-size: 20px;
       background: linear-gradient(270deg, #ff0080, #7928ca, #00bfff, #00ff80);
       background-size: 800% 800%;
-      animation: gradientShift 8s ease infinite;
+      animation: gradientShift 12s ease infinite, fadeSlideText 11s ease forwards;
+      animation-delay: 0s, 0.5s;
+      opacity: 0;
+    }
+
+    .role-box {
+      display: inline-block;
+      padding: 6px 16px;
+      background: #c966f8;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      animation: fadeSlideText 11s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
     }
 
     @keyframes gradientShift {
@@ -37,23 +50,26 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Caixa fixa */
-    .role-box {
-      display: inline-block;
-      padding: 6px 16px;
-      background: #c966f8;
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
+    @keyframes fadeSlideText {
+      0%, 5% { opacity: 0; transform: translateY(40px); }
+      15% { opacity: 1; transform: translateY(0); }
+      85% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(40px); }
     }
 
-    /* Shapes animados */
     .shape {
       position: absolute;
       width: 14px;
       height: 14px;
-      opacity: 0.9;
-      animation: float 4s infinite ease-in-out;
+      opacity: 0;
+      animation: shapeAnim 12s ease forwards, float 4s ease-in-out infinite;
+    }
+
+    @keyframes shapeAnim {
+      0% { opacity: 0; transform: translateY(20px); }
+      5% { opacity: 0.9; transform: translateY(0); }
+      90% { opacity: 0.9; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(20px); }
     }
 
     .shape.circle {
@@ -61,15 +77,15 @@
       background: yellow;
       top: -15px;
       left: 200px;
-      animation-delay: 0.2s;
+      animation-delay: 0s, 0s;
     }
 
     .shape.square {
       background: #ff5757;
       top: 20px;
       left: -10px;
-      animation-delay: 0.6s;
       transform: rotate(20deg);
+      animation-delay: 0.2s, 0.2s;
     }
 
     .shape.hexagon {
@@ -79,7 +95,7 @@
       border-bottom: 18px solid #39ff14;
       top: 40px;
       left: -20px;
-      animation-delay: 1s;
+      animation-delay: 0.4s, 0.4s;
     }
 
     @keyframes float {
@@ -93,7 +109,6 @@
     <div class="name-box">Cleverson Alves</div>
     <div class="role-box">Pastor de Quatro Barras</div>
 
-    <!-- Shapes decorativos -->
     <div class="shape circle"></div>
     <div class="shape square"></div>
     <div class="shape hexagon"></div>
