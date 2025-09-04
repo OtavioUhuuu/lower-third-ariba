@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lower Third Feminino Animado Suave</title>
+  <style>
+    body {
+      background: transparent;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .lower-third {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .name-box {
+      display: inline-block;
+      padding: 8px 16px;
+      color: #111;
+      font-weight: bold;
+      font-size: 20px;
+      background: linear-gradient(270deg, #ff99cc, #ff66ff, #ffb3e6, #ff66b2);
+      background-size: 800% 800%;
+      animation: gradientShift 12s ease infinite, fadeSlideText 11s ease forwards;
+      animation-delay: 0s, 0.5s;
+      opacity: 0;
+    }
+
+    .role-box {
+      display: inline-block;
+      padding: 6px 16px;
+      background: #c966f8;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      animation: fadeSlideText 11s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeSlideText {
+      0%, 5% { opacity: 0; transform: translateY(40px); }
+      15% { opacity: 1; transform: translateY(0); }
+      85% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(40px); }
+    }
+
+    .shape {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      opacity: 0;
+      animation: shapeAnim 12s ease forwards;
+    }
+
+    @keyframes shapeAnim {
+      0% { opacity: 0; transform: translateY(20px); }
+      5% { opacity: 0.9; transform: translateY(0); }
+      90% { opacity: 0.9; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(20px); }
+    }
+
+    .shape.square {
+      background: #ff66b3; 
+      top: -15px;
+      left: 200px;
+      animation: shapeAnim 12s ease forwards, moveSquare 4s ease-in-out infinite alternate;
+    }
+
+    .shape.triangle {
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 14px solid #ff99e6;
+      top: 20px;
+      left: -15px;
+      animation: shapeAnim 12s ease forwards, moveTriangle 4s ease-in-out infinite alternate;
+    }
+
+    .shape.circle {
+      width: 14px;
+      height: 14px;
+      background: #ffccff;
+      border-radius: 50%;
+      top: 40px;
+      left: -20px;
+      animation: shapeAnim 12s ease forwards, moveCircle 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes moveSquare {
+      0% { transform: translate(0,0) rotate(0deg); }
+      50% { transform: translate(-5px,3px) rotate(7deg); }
+      100% { transform: translate(0,0) rotate(0deg); }
+    }
+
+    @keyframes moveTriangle {
+      0% { transform: translate(0,0) rotate(0deg); }
+      50% { transform: translate(3px,-3px) rotate(-7deg); }
+      100% { transform: translate(0,0) rotate(0deg); }
+    }
+
+    @keyframes moveCircle {
+      0% { transform: translate(0,0) rotate(0deg); }
+      50% { transform: translate(0,-5px) rotate(0deg); }
+      100% { transform: translate(0,0) rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="lower-third">
+    <div class="name-box">Ministério Femino</div>
+    <div class="role-box">Hino</div>
+
+    <div class="shape square"></div>
+    <div class="shape triangle"></div>
+    <div class="shape circle"></div>
+  </div>
+</body>
+</html>
